@@ -1,0 +1,28 @@
+SELECT Name, Language, Percentage FROM Country, CountryLanguage WHERE Code = 'USA' AND Code = CountryCode
+SELECT Name, LifeExpectancy, IndepYear FROM country WHERE continent = 'Europe' ORDER BY lifeexpectancy
+SELECT Name, LifeExpectancy FROM Country WHERE LifeExpectancy IN (SELECT MIN(LifeExpectancy) FROM country UNION SELECT MAX(LifeExpectancy) FROM Country) OR Code = 'USA'
+SELECT Name, Percentage FROM Country, CountryLanguage WHERE Language = 'English' AND Percentage > 1.0 AND Code = CountryCode
+SELECT Population FROM Country WHERE Name = 'Iceland'
+SELECT COUNT(*) FROM Country
+SELECT COUNT(*) FROM CountryLanguage
+I CountryLanguage|'USA','C#','F',0.01
+I CountryLanguage|'GBR','Java','F',0.01
+I CountryLanguage|CountryCode, Language|'DEU','Java'
+SELECT * FROM CountryLanguage WHERE Language = 'C#' OR Language = 'Java'
+I Country|Code, Name, Population|'KZO','Kalamazoo',85000
+I Country|Code, Name, HeadOfState, Continent, Region|'DIS','Disneyland','Mickey Mouse','North America','North America'
+SELECT Code, Name, Population, HeadOfState, Continent, Region FROM Country WHERE code = 'KZO' OR code = 'DIS'
+D Country|Name|'Iceland'
+D Country|Name|'Faroe Islands'
+D Country|Code|'SJM'
+D CountryLanguage|Language|'Swedish'
+D CountryLanguage|Language|'Russian'
+SELECT Name FROM Country WHERE Region = 'Nordic Countries'
+SELECT Name, Language FROM Country, CountryLanguage WHERE Region = 'Nordic Countries' AND Code = CountryCode
+SELECT Name, Language FROM Country, CountryLanguage WHERE Region = 'Nordic Countries' AND Percentage > 99.5
+UPDATE Country SET HeadOfState = 'Barack Obama' WHERE Name = 'United States'
+UPDATE CountryLanguage SET language = 'American English' WHERE countryCode = 'USA' AND language = 'English'
+SELECT Name, HeadOfState FROM Country WHERE Code = 'USA'
+SELECT * FROM countryLanguage WHERE CountryCode = 'USA' AND Percentage > 0.5
+SELECT COUNT(*) FROM Country
+SELECT COUNT(*) FROM CountryLanguage

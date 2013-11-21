@@ -1,0 +1,41 @@
+﻿using System;
+
+namespace StringHandling
+{
+    class Program
+    {
+        static void Main()
+        {
+            string s1 = "I CountryLanguage:'USA','C#','F',0.01";
+            string s2 = "I Country:Code,Name,Population:'KZO','Kalamazoo',85000";
+            SubDivideString(s1);
+            SubDivideString(s2);
+        }
+        //--------------------------------------------------------------------------
+        static void SubDivideString(string s)
+        {
+            char tranCode = s[0];
+            string tableName;
+            string colNames;
+            string dataValues;
+
+            string[] field = new string[3];
+            field = s.Split(':');
+
+            tableName = field[0].Substring(2, field[0].Length - 2);
+
+            if (field.Length == 2)
+            {
+                colNames = "";
+                dataValues = field[1]; 
+            }
+            else
+            {
+                colNames = field[1];
+                dataValues = field[2];
+            }
+            Console.WriteLine("tranCode: {0}\ntableName: {1}\ncolNames: {2}\n" +
+                "dataValues: {3}\n", tranCode, tableName, colNames, dataValues);
+        }
+    }
+}
