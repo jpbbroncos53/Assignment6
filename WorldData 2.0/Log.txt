@@ -1,0 +1,265 @@
+Connecting to MySQL...
+OK, the DB Connection is OPENED
+SELECT Name, Language, Percentage FROM Country, CountryLanguage WHERE Code = 'USA' AND Code = CountryCode
+United States Chinese 0.6 
+United States English 86.2 
+United States French 0.7 
+United States German 0.7 
+United States Italian 0.6 
+United States Japanese 0.2 
+United States Korean 0.3 
+United States Polish 0.3 
+United States Portuguese 0.2 
+United States Spanish 7.5 
+United States Tagalog 0.4 
+United States Vietnamese 0.2 
+
+SELECT Name, LifeExpectancy, IndepYear FROM country WHERE continent = 'Europe' ORDER BY lifeexpectancy
+Holy See (Vatican City State) null 1929 
+Svalbard and Jan Mayen null null 
+Moldova 64.5 1991 
+Ukraine 66.0 1991 
+Russian Federation 67.2 1991 
+Belarus 68.0 1991 
+Latvia 68.4 1991 
+Lithuania 69.1 1991 
+Estonia 69.5 1991 
+Romania 69.9 1878 
+Bulgaria 70.9 1908 
+Hungary 71.4 1918 
+Bosnia and Herzegovina 71.5 1992 
+Albania 71.6 1912 
+Yugoslavia 72.4 1918 
+Poland 73.2 1918 
+Slovakia 73.7 1993 
+Croatia 73.7 1991 
+Macedonia 73.8 1991 
+Czech Republic 74.5 1993 
+Slovenia 74.9 1991 
+Portugal 75.8 1143 
+Denmark 76.5 800 
+Ireland 76.8 1921 
+Luxembourg 77.1 1867 
+Finland 77.4 1917 
+Germany 77.4 1955 
+United Kingdom 77.7 1066 
+Austria 77.7 1918 
+Belgium 77.8 1830 
+Malta 77.9 1964 
+Netherlands 78.3 1581 
+Greece 78.4 1830 
+Faroe Islands 78.4 null 
+Norway 78.7 1905 
+Monaco 78.8 1861 
+Spain 78.8 1492 
+Liechtenstein 78.8 1806 
+France 78.8 843 
+Italy 79.0 1861 
+Gibraltar 79.0 null 
+Iceland 79.4 1944 
+Switzerland 79.6 1499 
+Sweden 79.6 836 
+San Marino 81.1 885 
+Andorra 83.5 1278 
+
+SELECT Name, LifeExpectancy FROM Country WHERE LifeExpectancy IN (SELECT MIN(LifeExpectancy) FROM country UNION SELECT MAX(LifeExpectancy) FROM Country) OR Code = 'USA'
+Andorra 83.5 
+United States 77.1 
+Zambia 37.2 
+
+SELECT Name, Percentage FROM Country, CountryLanguage WHERE Language = 'English' AND Percentage > 1.0 AND Code = CountryCode
+Aruba 9.5 
+Netherlands Antilles 7.8 
+American Samoa 3.1 
+Australia 81.2 
+Belize 50.8 
+Bermuda 100.0 
+Brunei 3.1 
+Canada 60.4 
+United Kingdom 97.3 
+Gibraltar 88.9 
+Guam 37.5 
+Hong Kong 2.2 
+Ireland 98.4 
+Saint Lucia 20.0 
+Monaco 6.5 
+Malta 2.1 
+Northern Mariana Islands 4.8 
+Malaysia 1.6 
+Nauru 7.5 
+New Zealand 87.0 
+Palau 3.2 
+Puerto Rico 47.4 
+Seychelles 3.8 
+Trinidad and Tobago 93.5 
+United States 86.2 
+Virgin Islands, U.S. 81.7 
+Vanuatu 28.3 
+South Africa 8.5 
+Zimbabwe 2.2 
+
+SELECT Population FROM Country WHERE Name = 'Iceland'
+279000 
+
+SELECT COUNT(*) FROM Country
+239 
+
+SELECT COUNT(*) FROM CountryLanguage
+984 
+
+I CountryLanguage|'USA','C#','F',0.1
+INSERT SUCCESSFUL
+
+I CountryLanguage|'GBR','Java','F',0.1
+INSERT SUCCESSFUL
+
+I CountryLanguage|CountryCode, Language|'DEU','Java'
+INSERT SUCCESSFUL
+
+SELECT * FROM CountryLanguage WHERE Language = 'C#' OR Language = 'Java'
+DEU Java F 0.0 
+GBR Java F 0.1 
+USA C# F 0.1 
+
+I Country|Code, Name, Population|'KZO','Kalamazoo',85000
+INSERT SUCCESSFUL
+
+I Country|Code, Name, HeadOfState, Continent, Region|'DIS','Disneyland','Mickey Mouse','North America','North America'
+INSERT SUCCESSFUL
+
+SELECT Code, Name, Population, HeadOfState, Continent, Region FROM Country WHERE code = 'KZO' OR code = 'DIS'
+DIS Disneyland 0 Mickey Mouse North America North America 
+KZO Kalamazoo 85000 null Asia  
+
+D Country|Name|'Iceland'
+DELETE SUCCESSFUL
+
+D Country|Name|'Faroe Islands'
+DELETE SUCCESSFUL
+
+D Country|Code|'SJM'
+DELETE SUCCESSFUL
+
+D CountryLanguage|Language|'Swedish'
+DELETE SUCCESSFUL
+
+D CountryLanguage|Language|'Russian'
+DELETE SUCCESSFUL
+
+SELECT Name FROM Country WHERE Region = 'Nordic Countries'
+Denmark 
+Finland 
+Norway 
+Sweden 
+
+SELECT Name, Language FROM Country, CountryLanguage WHERE Region = 'Nordic Countries' AND Code = CountryCode
+Denmark Arabic 
+Denmark Danish 
+Denmark English 
+Denmark German 
+Denmark Norwegian 
+Denmark Turkish 
+Finland Estonian 
+Finland Finnish 
+Finland Saame 
+Norway Danish 
+Norway English 
+Norway Norwegian 
+Norway Saame 
+Sweden Arabic 
+Sweden Finnish 
+Sweden Norwegian 
+Sweden Southern Slavic Languages 
+Sweden Spanish 
+
+SELECT Name, Language FROM Country, CountryLanguage WHERE Region = 'Nordic Countries' AND Percentage > 99.5
+Denmark English 
+Finland English 
+Norway English 
+Sweden English 
+Denmark Crioulo 
+Finland Crioulo 
+Norway Crioulo 
+Sweden Crioulo 
+Denmark Spanish 
+Finland Spanish 
+Norway Spanish 
+Sweden Spanish 
+Denmark Creole English 
+Finland Creole English 
+Norway Creole English 
+Sweden Creole English 
+Denmark Arabic 
+Finland Arabic 
+Norway Arabic 
+Sweden Arabic 
+Denmark Faroese 
+Finland Faroese 
+Norway Faroese 
+Sweden Faroese 
+Denmark Creole English 
+Finland Creole English 
+Norway Creole English 
+Sweden Creole English 
+Denmark Haiti Creole 
+Finland Haiti Creole 
+Norway Haiti Creole 
+Sweden Haiti Creole 
+Denmark Creole English 
+Finland Creole English 
+Norway Creole English 
+Sweden Creole English 
+Denmark Korean 
+Finland Korean 
+Norway Korean 
+Sweden Korean 
+Denmark Dhivehi 
+Finland Dhivehi 
+Norway Dhivehi 
+Sweden Dhivehi 
+Denmark Korean 
+Finland Korean 
+Norway Korean 
+Sweden Korean 
+Denmark Rwanda 
+Finland Rwanda 
+Norway Rwanda 
+Sweden Rwanda 
+Denmark Spanish 
+Finland Spanish 
+Norway Spanish 
+Sweden Spanish 
+Denmark Italian 
+Finland Italian 
+Norway Italian 
+Sweden Italian 
+Denmark Arabic 
+Finland Arabic 
+Norway Arabic 
+Sweden Arabic 
+
+UPDATE Country SET HeadOfState = 'Barack Obama' WHERE Name = 'United States'
+UPDATE SUCCESSFUL
+
+UPDATE CountryLanguage SET language = 'American English' WHERE countryCode = 'USA' AND language = 'English'
+UPDATE SUCCESSFUL
+
+SELECT Name, HeadOfState FROM Country WHERE Code = 'USA'
+United States Barack Obama 
+
+SELECT * FROM countryLanguage WHERE CountryCode = 'USA' AND Percentage > 0.5
+USA American English T 86.2 
+USA Chinese F 0.6 
+USA French F 0.7 
+USA German F 0.7 
+USA Italian F 0.6 
+USA Spanish F 7.5 
+
+SELECT COUNT(*) FROM Country
+238 
+
+SELECT COUNT(*) FROM CountryLanguage
+966 
+
+
+EXITING PROGRAM
