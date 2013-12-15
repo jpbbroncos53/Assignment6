@@ -1,7 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+/* PROJECT: PureMichigan (Java)         CLASS: DataAccess
+ * AUTHOR: Jacob Potter
+ * FILES ACCESSED:  Log.txt
+ * FILE STRUCTURE:  .txt 
+ * DESCRIPTION:   Sends appropriate commands to MYSQL, and then reports the 
+ *              results to the Log file.
+ ******************************************************************************/
 package worlddata;
 
 /**

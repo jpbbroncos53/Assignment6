@@ -1,7 +1,17 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+/* PROJECT: UserApp(Java)         PROGRAM: WorldData 2.0
+ * AUTHOR:Jacob Potter
+ * OOP CLASSES USED:  SataAccess
+ *      
+ * FILES ACCESSED: 
+ *      INPUT:   WorldTrans.txt           
+ *      OUTPUT:  Log.txt                
+ *      
+ * DESCRIPTION:  The program itself is just the CONTROLLER which UTILIZES
+ *      the SERVICES (public methods) in DataAccess which works with data 
+ *      previously set up in a MYSQL server.
+ *     
+ *     
+ ******************************************************************************/
 package worlddata;
 
 import java.io.BufferedWriter;
